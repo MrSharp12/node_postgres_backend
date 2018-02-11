@@ -43,10 +43,10 @@ app.post('/fortunes', (req, res) => {
 app.put('/fortunes/:id', (req, res) => {
   const { id } = req.params;
 
-  const old_fortune = fortunes.find(f => f.id == id);
+  const old_fortune = fortunes.find(f => f.id == id);//finds the fortune to update
 
   ['message', 'lucky_number', 'spirit_animal'].forEach(key => {
-    if (req.body[key]) old_fortune[key] = req.body[key];
+    if (req.body[key]) old_fortune[key] = req.body[key];//this allows partial updates, value will not return undefined if left blank
   });
 
   writeFortunes(fortunes);
