@@ -21,7 +21,7 @@ app.get('/fortunes/:id', (req, res) => {
 
 const writeFortunes = json => {
   fs.writeFile('./data/fortunes.json', JSON.stringify(json), err => console.log(err));
-};
+};//helper function, takes care of wrting to the fortunes JSON file
 
 app.post('/fortunes', (req, res) => {
   const { message, lucky_number, spirit_animal } = req.body;
@@ -57,7 +57,7 @@ app.put('/fortunes/:id', (req, res) => {
 app.delete('/fortunes/:id', (req, res) => {
   const { id } = req.params;
 
-  const new_fortunes = fortunes.filter(f => f.id != id);
+  const new_fortunes = fortunes.filter(f => f.id != id);//only give us fortunes for those that don't match the id
 
   writeFortunes(new_fortunes);
 
