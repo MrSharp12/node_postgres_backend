@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+//this is an executable file
+//helps to keep app modular
+//this starts the app
+
+const app = require('../app');
+
+const port = 3000;
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
